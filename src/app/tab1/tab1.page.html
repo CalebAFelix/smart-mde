@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title mode='ios'>
+      Smart - MDE
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-content>
+      <div class='container'>
+        <div class='box1'>
+          <canvas id="myChart" ></canvas>
+        </div>
+        <div class='box1'>
+          <canvas id="myChart2" ></canvas>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          Proprietário: {{dataConfig.proprietario}}
+        </ion-item>
+        <ion-item>
+          Valor atual: R$ {{dataConfig.valorGasto}}
+        </ion-item>
+        <ion-item>
+         Add. Band.: {{dataConfig.band}}
+        </ion-item>
+        <ion-item>
+          Iluminação pública: R$ {{dataConfig.taxaIluminacao}}
+        </ion-item>
+        <ion-item>
+          Juros Moratórios: {{dataConfig.taxaMoratorios}} 
+        </ion-item>
+        <ion-item>
+          Próxima data de leitura: {{dataConfig.dataProxLeitura}}
+        </ion-item>
+        <ion-item>
+          N° de dias: {{dataConfig.numeroDias}}
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
