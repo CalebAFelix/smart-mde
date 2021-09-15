@@ -6,9 +6,11 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
+    ReactiveFormsModule,
     IonicModule,
     CommonModule,
     FormsModule,

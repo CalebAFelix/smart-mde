@@ -12,40 +12,58 @@
     <ion-card-content>
       <div class='container'>
         <div class='box1'>
-          <canvas id="myChart" ></canvas>
-        </div>
-        <div class='box1'>
-          <canvas id="myChart2" ></canvas>
+          <canvas id="myChart"></canvas>
         </div>
       </div>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+ <!----> <ion-card> 
     <ion-card-content>
       <ion-list>
-        <ion-item>
-          Proprietário: {{dataConfig.proprietario}}
-        </ion-item>
-        <ion-item>
-          Valor atual: R$ {{dataConfig.valorGasto}}
-        </ion-item>
-        <ion-item>
-         Add. Band.: {{dataConfig.band}}
-        </ion-item>
-        <ion-item>
-          Iluminação pública: R$ {{dataConfig.taxaIluminacao}}
-        </ion-item>
-        <ion-item>
-          Juros Moratórios: {{dataConfig.taxaMoratorios}} 
-        </ion-item>
-        <ion-item>
-          Próxima data de leitura: {{dataConfig.dataProxLeitura}}
-        </ion-item>
-        <ion-item>
-          N° de dias: {{dataConfig.numeroDias}}
-        </ion-item>
+        <form class="form" [formGroup]="validations_form">
+          <ion-item>
+            Valor total: R$ {{this.potenciaSomadaDiaria.toFixed(2)}}
 
+          </ion-item>
+          <ion-item>
+            Tarifa: R$ 
+            <ion-input formControlName="tarifa" [(ngModel)]="this.dataConfig.tarifa"></ion-input>
+
+          </ion-item>
+
+          <ion-item>
+            Add. Band.: R$ 
+            <ion-input formControlName="bandeira" [(ngModel)]="this.dataConfig.bandeira"></ion-input>
+
+          </ion-item>
+
+          <ion-item>
+            Taxa de Iluminação: R$ 
+            <ion-input formControlName="iluminacao" [(ngModel)]="this.dataConfig.iluminacao"></ion-input>
+
+          </ion-item>
+
+          <ion-item>
+            Outros valores: R$ 
+            <ion-input formControlName="outros" [(ngModel)]="this.dataConfig.outros"></ion-input>
+
+          </ion-item>
+          <ion-item>
+            Data de Leitura: 
+            <ion-input formControlName="data" [(ngModel)]="this.dataConfig.data"></ion-input>
+
+          </ion-item>
+          <ion-item>
+            <ion-button (click)='this.updateConfigs()' color='success'>Salva alterações
+              <ion-icon name='save'></ion-icon>
+            </ion-button>
+            <ion-button (click)='this.loadConfigs()' color='danger'>
+              Excluir alterações
+              <ion-icon name='refresh'></ion-icon>
+            </ion-button>
+          </ion-item>
+        </form>
       </ion-list>
     </ion-card-content>
   </ion-card>
